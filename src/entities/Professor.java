@@ -2,9 +2,9 @@ package entities;
 
 import entities.interfaces.ProfessorRm;
 
-public class Professor extends Pessoa implements ProfessorRm {
-	private String materia;
-	private Integer cargaHoraria;
+public class Professor extends BeingHuman implements ProfessorRm {
+	private String grade;
+	private Integer workload;
 	private int rm;
 
 	public Professor() {
@@ -14,36 +14,38 @@ public class Professor extends Pessoa implements ProfessorRm {
 		this.rm = rm;
 	}
 
-	public Professor(String nome, String cpf, String endereco, String cep, Integer idade, String materia,
-			Integer cargaHoraria) {
-		super(nome, cpf, endereco, cep, idade);
-		this.materia = materia;
-		this.cargaHoraria = cargaHoraria;
+	public Professor(String name, String nin, String address, String zipCode, Integer age, String grade,
+			Integer workload) {
+		super(name, nin, address, zipCode, age);
+		this.grade = grade;
+		this.workload = workload;
 	}
 
-	public String getMateria() {
-		return materia;
-	}
-
-	public void setMateria(String materia) {
-		this.materia = materia;
-	}
-
-	public Integer getCargaHoraria() {
-		return cargaHoraria;
-	}
-
-	public void setCargaHoraria(Integer cargaHoraria) {
-		this.cargaHoraria = cargaHoraria;
-	}
-	
 	
 
+	public String getGrade() {
+		return grade;
+	}
+
+	public void setGrade(String grade) {
+		this.grade = grade;
+	}
+
+	public Integer getWorkload() {
+		return workload;
+	}
+
+	public void setWorkload(Integer workload) {
+		this.workload = workload;
+	}
+
+	
+	
 	@Override
 	public String toString() {
-		return "Professor [materia=" + materia + ", cargaHoraria=" + cargaHoraria + ", getNome()="
-				+ getNome() + ", getCpf()=" + getCpf() + ", getEndereco()=" + getEndereco() + ", getCep()=" + getCep()
-				+ ", getIdade()=" + getIdade() + "]";
+		return "Professor [grade=" + grade + ", workload=" + workload + ", getName()=" + getName() + ", getNin()="
+				+ getNin() + ", getAddress()=" + getAddress() + ", getZipCode()=" + getZipCode() + ", getAge()="
+				+ getAge() + "]";
 	}
 
 	@Override

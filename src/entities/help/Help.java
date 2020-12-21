@@ -1,16 +1,16 @@
 package entities.help;
 
-import entities.interfaces.Entrar;
+import entities.interfaces.Acess;
 
 public class Help {
-	Entrar entrar;
+	Acess acess;
 
-	public boolean entrar() {
-		return entrar.entrar();
+	public boolean acess() {
+		return acess.acess();
 	}
 	
-	public Help(Entrar entrar) {
-		this.entrar=entrar;
+	public Help(Acess acess) {
+		this.acess=acess;
 	}
 
 }

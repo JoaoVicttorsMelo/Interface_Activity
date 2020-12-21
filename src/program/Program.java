@@ -2,56 +2,54 @@ package program;
 
 import javax.swing.JOptionPane;
 
-import entities.Diretor;
+import entities.HeadMaster;
 import entities.Professor;
 import entities.help.Help;
 import entities.help.HelpProfessor;
-import entities.interfaces.Entrar;
+import entities.interfaces.Acess;
 import entities.interfaces.ProfessorRm;
 
 public class Program {
 
 	public static void main(String[] args) {
-		char escolha = JOptionPane.showInputDialog("Você é diretor ou professor? [D/P]").charAt(0);
-		escolha = Character.toUpperCase(escolha);
-		if (escolha == 'D') {
-			String login = JOptionPane.showInputDialog("Digite seu Login: ");
-			String senha = JOptionPane.showInputDialog("digite sua senha: ");
-			Entrar entrar = new Diretor(login, senha);
-			if (new Help(entrar).entrar()) {
-				JOptionPane.showMessageDialog(null, "Funcionando perfeitamente Diretor");
-				String nome = JOptionPane.showInputDialog("digite seu nome: ");
-				String cpf = JOptionPane.showInputDialog("digite seu CPF: ");
-				String endereco = JOptionPane.showInputDialog("digite seu Endereço: ");
-				String cep = JOptionPane.showInputDialog("digite seu CEP: ");
-				String escola = JOptionPane.showInputDialog("digite o nome da sua escola: ");
-				int idade = Integer.parseInt(JOptionPane.showInputDialog("Digite sau idade: "));
-				int cargaHoraria = Integer.parseInt(JOptionPane.showInputDialog("Digite sua carga horaria: "));
-				Diretor diretor = new Diretor(nome, cpf, endereco, cep, idade, escola, cargaHoraria);
-				System.out.println(diretor);
+		char chosen = JOptionPane.showInputDialog("are You a Professor or a Headmaster? [P/H]").charAt(0);
+		chosen = Character.toUpperCase(chosen);
+		if (chosen == 'H') {
+			String login = JOptionPane.showInputDialog("set your Login: ");
+			String pass = JOptionPane.showInputDialog("set your password: ");
+			Acess acess = new HeadMaster(login, pass);
+			if (new Help(acess).acess()) {
+				String name = JOptionPane.showInputDialog("set your name: ");
+				String nin = JOptionPane.showInputDialog("set your nin: ");
+				String address = JOptionPane.showInputDialog("set your address: ");
+				String zipCode = JOptionPane.showInputDialog("set your Zip Code: ");
+				String school = JOptionPane.showInputDialog("set your school name: ");
+				int age = Integer.parseInt(JOptionPane.showInputDialog("how old are you?: "));
+				int workload = Integer.parseInt(JOptionPane.showInputDialog("set your workload: "));
+				HeadMaster headMaster = new HeadMaster(name, nin, address, zipCode, age, school, workload);
+				System.out.println(headMaster);
 			} else {
-				JOptionPane.showMessageDialog(null, "Login ou senha incorretos");
+				JOptionPane.showMessageDialog(null, "Something went wrong");
 			}
-		} else if (escolha == 'P') {
-			int rm = Integer.parseInt(JOptionPane.showInputDialog("Digite seu RM: "));
+		} else if (chosen == 'P') {
+			int rm = Integer.parseInt(JOptionPane.showInputDialog("set your code: "));
 			ProfessorRm professor = new Professor(rm);
 			if (new HelpProfessor(professor).rm()) {
-				JOptionPane.showMessageDialog(null, "Funcionando perfeitamente Diretor");
-				String nome = JOptionPane.showInputDialog("digite seu nome: ");
-				String cpf = JOptionPane.showInputDialog("digite seu CPF: ");
-				String endereco = JOptionPane.showInputDialog("digite seu Endereço: ");
-				String cep = JOptionPane.showInputDialog("digite seu CEP: ");
-				String materia = JOptionPane.showInputDialog("digite sua Matéria: ");
-				int idade = Integer.parseInt(JOptionPane.showInputDialog("Digite sau idade: "));
-				int cargaHoraria = Integer.parseInt(JOptionPane.showInputDialog("Digite sua carga horaria: "));
-				Professor prof= new Professor(nome, cpf, endereco, cep, idade, materia, cargaHoraria);
+				String name = JOptionPane.showInputDialog("set your name: ");
+				String nin = JOptionPane.showInputDialog("set your nin: ");
+				String address = JOptionPane.showInputDialog("set your address: ");
+				String zipCode = JOptionPane.showInputDialog("set your Zip Code: ");
+				String grade = JOptionPane.showInputDialog("set your grade: ");
+				int age = Integer.parseInt(JOptionPane.showInputDialog("how old are you?: "));
+				int workload = Integer.parseInt(JOptionPane.showInputDialog("set your workload: "));
+				Professor prof = new Professor(name, nin, address, zipCode, age, grade, workload);
 				System.out.println(prof);
 			} else {
-				JOptionPane.showMessageDialog(null, "Seu RM esta incorreto");
+				JOptionPane.showMessageDialog(null, "Your code doesn't exist");
 
 			}
 		} else {
-			JOptionPane.showMessageDialog(null, "Você não digitou nenhuma das opções corretas");
+			JOptionPane.showMessageDialog(null, "Something went wrong");
 		}
 
 	}
